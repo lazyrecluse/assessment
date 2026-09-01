@@ -197,6 +197,23 @@ npm run test:coverage
 
 ---
 
+## Postman Collection (Pseudo-Frontend)
+
+A pre-configured Postman Collection is included in the root directory: [`Card-Validation-API.postman_collection.json`](./Card-Validation-API.postman_collection.json).
+
+### How to Use:
+1. Start the local server (`npm run dev`).
+2. Open **Postman** (or VS Code Postman extension).
+3. Click **Import** and select `Card-Validation-API.postman_collection.json`.
+4. The collection includes 10 pre-built requests covering:
+   - `GET /health`: Health check
+   - `POST /api/v1/cards/validate` (Valid Visa, Amex, formatted numbers with spaces/hyphens)
+   - `POST /api/v1/cards/validate` (Invalid Luhn checksum, short length, alphabetic characters)
+   - `POST /api/v1/cards/validate` (400 Bad Request error cases for missing fields or non-string inputs)
+5. Each request includes automated Postman assertion scripts (`pm.test`). Click **Run Collection** to execute all tests automatically.
+
+---
+
 ## Design Decisions & Trade-offs
 
 1. **Framework Choice (Express.js vs NestJS)**:
